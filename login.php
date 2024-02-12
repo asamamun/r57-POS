@@ -17,7 +17,7 @@ if (isset($_POST['login'])) {
       if ($row['role'] == "2") {
         header('Location:admin/');
       } elseif ($row['role'] == "1") {
-        header('Location:index.php');
+        header('Location:order.php');
       } else {
         header('Location:index.php');
       }
