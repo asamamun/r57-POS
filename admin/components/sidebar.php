@@ -21,12 +21,20 @@
                 </a>
                 <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="category_all.php">Product categories</a>
+                        <!-- product categories -->
+                        <a class="nav-link" href="category_all.php"><i class="bi bi-bank"></i>Product categories</a>
+                        <a class="nav-link" href="select.php"><i class="bi bi-bank"></i>Product_in_up_Del</a>
                         <!-- <a class="nav-link" href="layout-static.html">All</a> -->
-                        <a class="nav-link" href="customer_list.php">Customers</a>
-                        <a class="nav-link" href="invoice.php">Invoice</a>
-                        <a class="nav-link" href="orders.php">Orders</a>
-                        <a class="nav-link" href="suppliers.php">Suppliers</a>
+
+                        <a class="nav-link" href="customer_list.php"><i class="bi bi-person-workspace"></i>Customers</a>
+                        <a class="nav-link" href="employee.php"><i class="bi bi-person-lines-fill"></i>Employee_List</a>
+                        <a class="nav-link" href="invoice.php"><i class="bi bi-receipt-cutoff"></i>Invoice</a>
+                        <a class="nav-link" href="invoicedetails.php"><i class="bi bi-receipt"></i>Invoice_Details</a>
+                        <a class="nav-link" href="orders.php"><i class="bi bi-box"></i>Orders</a>
+                        <a class="nav-link" href="orderdetails.php"><i class="bi bi-box-seam"></i>Orders_Details</a>
+                        <a class="nav-link" href="expenses.php"><i class="bi bi-dash-circle"></i>Expences</a>
+                        <a class="nav-link" href="accounts.php"><i class="bi bi-credit-card-2-front"></i>Payment</a>
+                        <a class="nav-link" href="suppliers.php"><i class="bi bi-suitcase-lg-fill"></i>Suppliers</a>
                     </nav>
                 </div>
                 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseUsers" aria-expanded="false" aria-controls="collapseLayouts">

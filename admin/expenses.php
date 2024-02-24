@@ -11,7 +11,7 @@ if (!Admin::Check()) {
     exit;
 }
 $db = new MysqliDb();
-$invoice = $db->get('invoice');
+$expenses = $db->get('expenses');
 ?>
 <?php require __DIR__ . '/components/header.php'; ?>
 </head>
@@ -24,36 +24,31 @@ $invoice = $db->get('invoice');
             <main>
                 <!-- changed content -->
                 <div style="background-color:antiquewhite">
-                    <H1 style="text-align: center;">Invoice</H1>
+                    <H1 style="text-align: center;">Expense Sectors</H1>
                     <hr>
                 </div>
-                <table class="table table-stripped table-hover">
+                <table class="table table-stripped table-hover p-2">
                     <tr>
-                        <th>Id</th>
-                        <th>Customer_ID</th>
-                        <th>Net_total</th>
-                        <th>Discount</th>
-                        <th>Grand_total</th>
-                        <th>Comment</th>
-                        <th>Payment_type</th>
-                        <th>Trx_ID</th>
+                        <th>Expense Id</th>
+                        <th>Expense_Name</th>
+                        <th>Expense_Amount</th>
+                        <th>Payment_Type</th>
                         <th>Created</th>
-                        <th>Updated</th>
+                        <th>Deleted</th>
+                        <th>Action</th>
                     </tr>
                     <?php
-                    foreach ($invoice as $in) {
+                    foreach ($expenses as $in) {
                         echo
                         "<tr>
                             <td>{$in['id']}</td>
-                             <td>{$in['customer_id']}</td>
-                             <td>{$in['total']}</td>
-                             <td>{$in['discount']}</td>
-                             <td>{$in['pay_amount']}</td>
-                             <td>{$in['comment']}</td>
+                             <td>{$in['name']}</td>
+                             <td>{$in['amount']}</td>
                              <td>{$in['payment_type']}</td>
-                             <td>{$in['trxid']}</td>
                              <td>{$in['created']}</td>
-                             <td>{$in['updated']}</td> 
+                             <td>{$in['deleted']}</td>
+                             <td><a href='#?customers_id={$in['id']}'><i class='bi bi-pencil-square'></i></a></a> || <a href='#?customers_id={$in['id']}' onclick='return confirm(\"Are you want sure want to delete ?\")'><i class='bi bi-trash3'></i></a></td>
+                             
                         <tr>";
                     }
                     ?>
@@ -72,5 +67,4 @@ $invoice = $db->get('invoice');
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
     <script src="<?= settings()['adminpage'] ?>assets/js/datatables-simple-demo.js"></script>
 </body>
-
 </html>

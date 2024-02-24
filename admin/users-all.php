@@ -57,7 +57,6 @@ $users = $db->get('users');
                         </div> -->
                     </div>
 
-
                     <table class="table table-responsive table-striped">
                         <tr>
                             <th>ID</th>

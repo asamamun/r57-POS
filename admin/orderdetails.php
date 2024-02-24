@@ -11,7 +11,7 @@ if (!Admin::Check()) {
     exit;
 }
 $db = new MysqliDb();
-$invoice = $db->get('invoice');
+$orderdetails = $db->get('orderdetails');
 ?>
 <?php require __DIR__ . '/components/header.php'; ?>
 </head>
@@ -24,36 +24,30 @@ $invoice = $db->get('invoice');
             <main>
                 <!-- changed content -->
                 <div style="background-color:antiquewhite">
-                    <H1 style="text-align: center;">Invoice</H1>
-                    <hr>
+                <H1 style="text-align: center; " >ORDER DETAILS</H1>
+                <hr>
                 </div>
                 <table class="table table-stripped table-hover">
                     <tr>
                         <th>Id</th>
-                        <th>Customer_ID</th>
-                        <th>Net_total</th>
-                        <th>Discount</th>
-                        <th>Grand_total</th>
-                        <th>Comment</th>
-                        <th>Payment_type</th>
-                        <th>Trx_ID</th>
+                        <th>Order_ID</th>
+                        <th>Product_ID</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Total</th>
                         <th>Created</th>
-                        <th>Updated</th>
                     </tr>
                     <?php
-                    foreach ($invoice as $in) {
+                    foreach ($orderdetails as $order) {
                         echo
                         "<tr>
-                            <td>{$in['id']}</td>
-                             <td>{$in['customer_id']}</td>
-                             <td>{$in['total']}</td>
-                             <td>{$in['discount']}</td>
-                             <td>{$in['pay_amount']}</td>
-                             <td>{$in['comment']}</td>
-                             <td>{$in['payment_type']}</td>
-                             <td>{$in['trxid']}</td>
-                             <td>{$in['created']}</td>
-                             <td>{$in['updated']}</td> 
+                            <td>{$order['id']}</td>
+                            <td>{$order['order_id']}</td>
+                             <td>{$order['product_id']}</td>
+                             <td>{$order['quantity']}</td>
+                             <td>{$order['price']}</td>
+                             <td>{$order['total']}</td>
+                             <td>{$order['created']}</td>                             
                         <tr>";
                     }
                     ?>
@@ -72,5 +66,4 @@ $invoice = $db->get('invoice');
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
     <script src="<?= settings()['adminpage'] ?>assets/js/datatables-simple-demo.js"></script>
 </body>
-
 </html>

@@ -11,7 +11,7 @@ if (!Admin::Check()) {
     exit;
 }
 $db = new MysqliDb();
-$invoice = $db->get('invoice');
+$employee = $db->get('employee');
 ?>
 <?php require __DIR__ . '/components/header.php'; ?>
 </head>
@@ -24,36 +24,39 @@ $invoice = $db->get('invoice');
             <main>
                 <!-- changed content -->
                 <div style="background-color:antiquewhite">
-                    <H1 style="text-align: center;">Invoice</H1>
+                    <H1 style="text-align: center;">Employee List</H1>
                     <hr>
                 </div>
                 <table class="table table-stripped table-hover">
                     <tr>
-                        <th>Id</th>
-                        <th>Customer_ID</th>
-                        <th>Net_total</th>
-                        <th>Discount</th>
-                        <th>Grand_total</th>
-                        <th>Comment</th>
-                        <th>Payment_type</th>
-                        <th>Trx_ID</th>
-                        <th>Created</th>
-                        <th>Updated</th>
+                        <th>Employee Id</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Contact</th>
+                        <th>Address</th>
+                        <th>Join date</th>
+                        <th>POST</th>
+                        <th>Branch ID</th>
+                        <th>Salary</th>
+                        <th>Delete_At</th>
+                        <th>Action</th>
                     </tr>
                     <?php
-                    foreach ($invoice as $in) {
+                    foreach ($employee as $in) {
                         echo
                         "<tr>
-                            <td>{$in['id']}</td>
-                             <td>{$in['customer_id']}</td>
-                             <td>{$in['total']}</td>
-                             <td>{$in['discount']}</td>
-                             <td>{$in['pay_amount']}</td>
-                             <td>{$in['comment']}</td>
-                             <td>{$in['payment_type']}</td>
-                             <td>{$in['trxid']}</td>
-                             <td>{$in['created']}</td>
-                             <td>{$in['updated']}</td> 
+                            <td>{$in['eid']}</td>
+                             <td>{$in['frist_name']}</td>
+                             <td>{$in['last_name']}</td>
+                             <td>{$in['contact']}</td>
+                             <td>{$in['address']}</td>
+                             <td>{$in['join_date']}</td>
+                             <td>{$in['post']}</td>
+                             <td>{$in['branch_id']}</td>
+                             <td>{$in['salary']}</td>
+                             <td>{$in['delete_at']}</td> 
+                             <td><a href='#?customers_id={$in['eid']}'><i class='bi bi-pencil-square'></i></a></a> || <a href='#?customers_id={$in['eid']}' onclick='return confirm(\"Are you want sure want to delete ?\")'><i class='bi bi-trash3'></i></a></td>
+                             
                         <tr>";
                     }
                     ?>

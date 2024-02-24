@@ -11,7 +11,7 @@ if (!Admin::Check()) {
     exit;
 }
 $db = new MysqliDb();
-$invoice = $db->get('invoice');
+$invoicedetails = $db->get('invoicedetails');
 ?>
 <?php require __DIR__ . '/components/header.php'; ?>
 </head>
@@ -24,36 +24,30 @@ $invoice = $db->get('invoice');
             <main>
                 <!-- changed content -->
                 <div style="background-color:antiquewhite">
-                    <H1 style="text-align: center;">Invoice</H1>
+                    <H1 style="text-align: center;">Invoice Details</H1>
                     <hr>
                 </div>
                 <table class="table table-stripped table-hover">
                     <tr>
                         <th>Id</th>
-                        <th>Customer_ID</th>
-                        <th>Net_total</th>
-                        <th>Discount</th>
-                        <th>Grand_total</th>
-                        <th>Comment</th>
-                        <th>Payment_type</th>
-                        <th>Trx_ID</th>
+                        <th>Invoice_Id</th>
+                        <th>Product_ID</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Total</th>
                         <th>Created</th>
-                        <th>Updated</th>
                     </tr>
                     <?php
-                    foreach ($invoice as $in) {
+                    foreach ($invoicedetails as $in) {
                         echo
                         "<tr>
                             <td>{$in['id']}</td>
-                             <td>{$in['customer_id']}</td>
+                             <td>{$in['invoice_id']}</td>
+                             <td>{$in['product_id']}</td>
+                             <td>{$in['quantity']}</td>
+                             <td>{$in['price']}</td>
                              <td>{$in['total']}</td>
-                             <td>{$in['discount']}</td>
-                             <td>{$in['pay_amount']}</td>
-                             <td>{$in['comment']}</td>
-                             <td>{$in['payment_type']}</td>
-                             <td>{$in['trxid']}</td>
-                             <td>{$in['created']}</td>
-                             <td>{$in['updated']}</td> 
+                             <td>{$in['created']}</td>                             
                         <tr>";
                     }
                     ?>

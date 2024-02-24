@@ -12,7 +12,7 @@ if (!Admin::Check()) {
 }
 
 $db = new mysqliDb();
-$cat_id = $_GET['cat_id'] ?? 1;
+$cat_id = $_GET['cat_id']??null;
 $db->where('category_id', $cat_id);
 $products = $db->get('products');
 

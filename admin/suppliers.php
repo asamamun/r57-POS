@@ -23,6 +23,10 @@ $suppliers = $db->get('suppliers');
         <div id="layoutSidenav_content">
             <main>
                 <!-- changed content -->
+                <div style="background-color:antiquewhite">
+                    <H1 style="text-align: center;">Product Suppliers</H1>
+                    <hr>
+                </div>
                 <table class="table table-stripped table-hover">
                     <tr>
                         <th>Customer Id</th>

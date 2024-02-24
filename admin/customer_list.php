@@ -23,6 +23,10 @@ $customers = $db->get('customers');
         <div id="layoutSidenav_content">
             <main>
                 <!-- changed content -->
+                <div style="background-color:antiquewhite">
+                    <H1 style="text-align: center;">Customer List</H1>
+                    <hr>
+                </div>
                 <table class="table table-stripped table-hover">
                     <tr>
                         <th>Customer Id</th>
